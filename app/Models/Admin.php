@@ -7,34 +7,29 @@
 namespace App\Models;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class User
+ * Class Admin
  * 
  * @property int $id
  * @property string $first_name
  * @property string $last_name
  * @property string $email
- * @property string $moible
- * @property int|null $avatar_file_id
  * @property string $password
+ * @property int $status
  * @property Carbon $created_at
  * @property Carbon $updated_at
- * 
- * @property File|null $file
- * @property Collection|Order[] $orders
  *
  * @package App\Models
  */
-class User extends Model
+class Admin extends Model
 {
-	protected $table = 'users';
+	protected $table = 'admins';
 	public static $snakeAttributes = false;
 
 	protected $casts = [
-		'avatar_file_id' => 'int'
+		'status' => 'int'
 	];
 
 	protected $hidden = [
@@ -45,18 +40,7 @@ class User extends Model
 		'first_name',
 		'last_name',
 		'email',
-		'moible',
-		'avatar_file_id',
-		'password'
+		'password',
+		'status'
 	];
-
-	public function file()
-	{
-		return $this->belongsTo(File::class, 'avatar_file_id');
-	}
-
-	public function orders()
-	{
-		return $this->hasMany(Order::class);
-	}
 }
