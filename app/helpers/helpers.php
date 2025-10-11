@@ -15,6 +15,7 @@ if (!function_exists('getUserFullName')) {
 if (!function_exists('activeSideMenuItem')) {
     function activeSideMenuItem(string $targetRoute): string
     {
+
         $activeClass = 'bg-blue-500/10 text-blue-500';
         $defaultClass = 'hover:text-blue-500';
         $currentRouteName = \Illuminate\Support\Facades\Route::currentRouteNamed();
