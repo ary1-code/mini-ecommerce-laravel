@@ -195,7 +195,7 @@ return [
         'email' => 'ایمیل',
         'first_name' => 'نام',
         'last_name' => 'نام خانوادگی',
-        'password' => 'گذرواژه',
+        'password' => 'رمز عبور',
         'password_confirmation' => 'تاییدیه گذرواژه',
         'city' => 'شهر',
         'state' => 'استان',
