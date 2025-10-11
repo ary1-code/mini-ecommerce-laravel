@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $first_name
  * @property string $last_name
  * @property string $email
- * @property string $moible
+ * @property string $mobile
  * @property int|null $avatar_file_id
  * @property string $password
  * @property Carbon $created_at
@@ -45,7 +45,7 @@ class User extends Model
 		'first_name',
 		'last_name',
 		'email',
-		'moible',
+		'mobile',
 		'avatar_file_id',
 		'password'
 	];

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Account\OrderController;
+use App\Http\Controllers\Account\ProfileController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -8,18 +10,25 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
 
-Route::prefix('auth')->as('auth.')->group(function (){
+Route::prefix('auth')->as('auth.')->group(function () {
 
-    Route::controller(RegisterController::class)->as('register.')->prefix('register')->group(function (){
+    Route::controller(RegisterController::class)->as('register.')->prefix('register')->middleware('guest')->group(function () {
 
-        Route::get('/','index')->name('index');
-        Route::post('/','post')->name('post');
+        Route::get('/', 'index')->name('index');
+        Route::post('/', 'post')->name('post');
 
     });
-    Route::controller(LoginController::class)->as('login.')->prefix('login')->group(function (){
+    Route::controller(LoginController::class)->as('login.')->prefix('login')->middleware('guest')->group(function () {
 
-        Route::get('/','index')->name('index');
-        Route::post('/','post')->name('post');
+        Route::get('/', 'index')->name('index');
+        Route::post('/', 'post')->name('post');
+    });
+
+    Route::post('logout', [LogoutController::class, 'index'])
+        ->middleware('auth')
+        ->name('logout');
+
+});
 
 Route::prefix('account')->as('account.')->middleware('auth')->group(function () {
     Route::prefix('profile')

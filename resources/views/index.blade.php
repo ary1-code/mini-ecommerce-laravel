@@ -403,7 +403,7 @@
                         </a>
                         <!--  product footer -->
                         <div class="space-y-2">
-                            <a href="http://127.0.0.1:8000/products/2" class="product-card_link">
+                            <a href="{{asset('assets/images/products/2.png')}}" class="product-card_link">
                                 رمان | Novel
                             </a>
                             <!-- Rate and Price -->

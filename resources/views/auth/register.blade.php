@@ -27,7 +27,7 @@
                         <use href="#sun"/>
                     </svg>
                 </button>
-                <a href="http://127.0.0.1:8000" class="flex flex-col text-center">
+                <a href="{{route('index')}}" class="flex flex-col text-center">
          <span class="font-MorabbaMedium text-4xl flex items-center">
              فروشگاه <span class="text-blue-500">درنیکا</span>
          </span>
@@ -37,8 +37,17 @@
                 <p class="mb-2 text-gray-800 dark:text-gray-100 font-DanaMedium text-lg">ساخت حساب کاربری </p>
 
 
-                <form class="space-y-5" action="" method="POST">
-                    <input type="hidden" name="_token" value="4bYZgaUXw6NRUpehNCo79sVxnGyoZdTpQMBuSG48" autocomplete="off">
+                <form
+                    class="space-y-5"
+                    action="{{route('auth.register.post')}}"
+                    method="POST"
+                >
+                    @csrf
+                    @error('general')
+                    <div class="text-red-500">{{ $message }}</div>
+                    @enderror
+                    <input type="hidden" name="_token" value="4bYZgaUXw6NRUpehNCo79sVxnGyoZdTpQMBuSG48"
+                           autocomplete="off">
                     <div>
                         <label for="first_name" class="block text-sm/6 font-medium text-gray-500 dark:text-gray-300">
                             نام
@@ -50,11 +59,17 @@
                                 name="first_name"
                                 autofocus
                                 tabindex="1"
-                                value=""
+                                value="{{old('first_name')}}"
+
                                 class="block w-full p-3 text-base outline dark:outline-none outline-1 -outline-offset-1 placeholder:text-gray-400  sm:text-sm/6 transition-all text-gray-800 dark:text-gray-100 dark:bg-gray-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded-md outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 dark:focus:ring-blue-400"
                             />
                         </div>
-                        <!-- ERROR -->
+
+                        @error('first_name')
+                        <div class="text-red-500">{{ $message }}</div>
+                        @enderror
+
+
                     </div>
 
                     <div>
@@ -67,11 +82,14 @@
                                 id="last_name"
                                 name="last_name"
                                 tabindex="2"
-                                value=""
+                                value="{{old('last_name')}}"
+
                                 class="block w-full p-3 text-base outline dark:outline-none outline-1 -outline-offset-1 placeholder:text-gray-400  sm:text-sm/6 transition-all text-gray-800 dark:text-gray-100 dark:bg-gray-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded-md outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 dark:focus:ring-blue-400"
                             />
                         </div>
-                        <!-- ERROR -->
+                        @error('last_name')
+                        <div class="text-red-500">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div>
@@ -84,10 +102,13 @@
                                 id="mobile"
                                 name="mobile"
                                 tabindex="3"
+                                value="{{old('mobile')}}"
                                 class="block w-full p-3 text-base outline dark:outline-none outline-1 -outline-offset-1 placeholder:text-gray-400  sm:text-sm/6 transition-all text-gray-800 dark:text-gray-100 dark:bg-gray-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded-md outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 dark:focus:ring-blue-400"
                             />
                         </div>
-                        <!-- ERROR -->
+                        @error('mobile')
+                        <div class="text-red-500">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div>
@@ -100,11 +121,13 @@
                                 id="email"
                                 name="email"
                                 tabindex="4"
-                                value=""
+                                value="{{old('email')}}"
                                 class="block w-full p-3 text-base outline dark:outline-none outline-1 -outline-offset-1 placeholder:text-gray-400  sm:text-sm/6 transition-all text-gray-800 dark:text-gray-100 dark:bg-gray-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded-md outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 dark:focus:ring-blue-400"
                             />
                         </div>
-                        <!-- ERROR -->
+                        @error('email')
+                        <div class="text-red-500">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div>
@@ -120,11 +143,14 @@
                                 class="block w-full p-3 text-base outline dark:outline-none outline-1 -outline-offset-1 placeholder:text-gray-400  sm:text-sm/6 transition-all text-gray-800 dark:text-gray-100 dark:bg-gray-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded-md outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 dark:focus:ring-blue-400"
                             />
                         </div>
-                        <!-- ERROR -->
+                        @error('password')
+                        <div class="text-red-500">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div>
-                        <label for="password" class="block text-sm/6 font-medium text-gray-500 dark:text-gray-300">
+                        <label for="password"
+                               class="block text-sm/6 font-medium text-gray-500 dark:text-gray-300">
                             تکرار رمز عبور
                         </label>
                         <div class="mt-3">
@@ -139,12 +165,12 @@
                     </div>
 
                     <div>
-                        <button type="submit" class="submit-btn" tabindex="7" >ساخت حساب کاربری</button>
+                        <button type="submit" class="submit-btn" tabindex="7">ساخت حساب کاربری</button>
                     </div>
                 </form>
                 <p class="mt-8 text-center text-sm/6 text-gray-500 dark:text-gray-300">
                     حساب کاربری دارید ؟
-                    <a class="text-blue-400" href="http://127.0.0.1:8000/auth/login">ورود</a>
+                    <a class="text-blue-400" href="{{route('auth.login.index')}}">ورود</a>
                 </p>
             </div>
         </div>

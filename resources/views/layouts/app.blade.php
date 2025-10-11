@@ -14,6 +14,7 @@
 
     <link rel="stylesheet" href="{{asset('assets/styles/app.css')}}">
     <link rel="stylesheet" href="{{asset('assets/swiper/swiper.css')}}">
+    <script src="{{asset('assets/scripts/jquery-3.7.1.min.js')}}"></script>
 
 
     <!-- ==========================  DARK MODE SCRIPT ============================= -->
@@ -47,7 +48,7 @@
 <div class="overlay"></div>
 <div class="search-overlay"></div>
 
-<script src="{{asset('assets/scripts/jquery-3.7.1.min.js')}}"></script>
+
 <script src="{{asset('assets/swiper/swiper.js')}}"></script>
 <script src="{{asset('assets/scripts/app.js')}}"></script>
 <script type="module" src="{{asset('assets/scripts/slider.js')}}"></script>
