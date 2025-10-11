@@ -21,8 +21,17 @@ Route::prefix('auth')->as('auth.')->group(function (){
         Route::get('/','index')->name('index');
         Route::post('/','post')->name('post');
 
-    });
+Route::prefix('account')->as('account.')->middleware('auth')->group(function () {
+    Route::prefix('profile')
+        ->as('profile.')
+        ->controller(ProfileController::class)
+        ->group(function () {
 
-    Route::get('logout',[LogoutController::class,'index'])->name('logout');
+            Route::get('/', 'index')->name('index');
+            Route::put('/', 'put')->name('put');
+        });
+
+    Route::get('orders',[OrderController::class],'index')->name('order.index');
+
 
 });
