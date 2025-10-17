@@ -12,7 +12,7 @@
                     <div class="flex items-center gap-x-3">
                         <span class="felx flex-col gap-y-2">
                             <p class="font-DanaMedium text-lg">{{getUserFullName()}}</p>
-                            <p class="text-gray-400">{{auth()->user()->moible}}</p>
+                            <p class="text-gray-400">{{auth()->user()->mobile}}</p>
                         </span>
                     </div>
                 </div>

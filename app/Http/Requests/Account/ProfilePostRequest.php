@@ -37,7 +37,7 @@ class ProfilePostRequest extends FormRequest
             ],
             'mobile' => [
                 'required',
-                'unique:App\Models\User,mobile'. auth()->id(),
+                'unique:App\Models\User,mobile,'. auth()->id(),
                 'ir_mobile:zero'
             ],
             'password' => [
@@ -46,7 +46,7 @@ class ProfilePostRequest extends FormRequest
             ],
             'email' => [
                 'required',
-                'unique:App\Models\User,email', auth()->id(),
+                'unique:App\Models\User,email,'. auth()->id(),
                 'email',
                 'max:100'
             ]

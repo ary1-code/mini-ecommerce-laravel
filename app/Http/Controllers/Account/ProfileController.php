@@ -22,32 +22,27 @@ class ProfileController extends Controller
         $inputs = $request->only([
             'first_name',
             'last_name',
-            'email',
-            'password'
+            'email'
         ]);
 
-        if ($request->filled('password')) {
-
+        if ($request->filled('password'))
+        {
             $inputs['password'] = Hash::make($request->input('password'));
-
         }
 
         try {
-
             Auth::user()->update($inputs);
-        }catch (\Exception $exception){
-          Log::error($exception);
-
-          return back()->withErrors([
-              'general'=>'خطا در ذخیره اطلاعات'
-          ]);
+        } catch (\Exception $exception) {
+            Log::error($exception);
+            return back()->withErrors([
+                'general' => 'خطا در ذخیره اطلاعات'
+            ]);
 
 
         }
 
 
-
-        return back()->with('success-message','ویرایش اطلاعات کاربری با موفقیت انجام شد');
+        return back()->with('success-message', 'ویرایش اطلاعات کاربری با موفقیت انجام شد');
 
     }
 

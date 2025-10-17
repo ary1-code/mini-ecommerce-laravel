@@ -40,7 +40,7 @@ Route::prefix('account')->as('account.')->middleware('auth')->group(function () 
             Route::put('/', 'put')->name('put');
         });
 
-    Route::get('orders',[OrderController::class],'index')->name('order.index');
+    Route::get('orders', [OrderController::class,'index'] )->name('order.index');
 
 
 });

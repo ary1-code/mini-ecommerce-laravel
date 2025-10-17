@@ -8,11 +8,11 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Auth;
 
 /**
  * Class User
- * 
+ *
  * @property int $id
  * @property string $first_name
  * @property string $last_name
@@ -22,13 +22,13 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $password
  * @property Carbon $created_at
  * @property Carbon $updated_at
- * 
+ *
  * @property File|null $file
  * @property Collection|Order[] $orders
  *
  * @package App\Models
  */
-class User extends Model
+class User extends Auth
 {
 	protected $table = 'users';
 	public static $snakeAttributes = false;

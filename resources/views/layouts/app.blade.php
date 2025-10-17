@@ -14,6 +14,7 @@
 
     <link rel="stylesheet" href="{{asset('assets/styles/app.css')}}">
     <link rel="stylesheet" href="{{asset('assets/swiper/swiper.css')}}">
+
     <script src="{{asset('assets/scripts/jquery-3.7.1.min.js')}}"></script>
 
 

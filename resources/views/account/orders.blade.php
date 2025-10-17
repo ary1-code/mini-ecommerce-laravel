@@ -14,13 +14,15 @@
                 <thead class="text-xs text-gray-700  bg-gray-100 dark:bg-gray-900 dark:text-gray-200">
                 <tr>
                     <th
+                        scope="col" class="px-6 py-3.5">
+                        شناسه سفارش
+                    </th>
+
+                    <th
                             scope="col" class="px-6 py-3.5">
                         نام محصولات
                     </th>
-                    <th
-                            scope="col" class="px-6 py-3.5">
-                        شناسه سفارش
-                    </th>
+
                     <th
                             scope="col" class="px-6 py-3.5">
                         تاریخ ثبت
@@ -62,7 +64,7 @@
 
                         <td class="px-6 py-5">
 
-                            {{ $order->created_at->toJalali->format('H:i Y/m/d')}}
+                            {{ $order->created_at->format('H:i Y/m/d')}}
 
                         </td>
 

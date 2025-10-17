@@ -45,7 +45,7 @@ class Order extends Model
 		'user_id' => 'int',
 		'total_price' => 'int',
 		'total_products' => 'int',
-		'status' => 'int'
+        'status'=> OrderStatus::class
 	];
 
 	protected $fillable = [
@@ -58,7 +58,7 @@ class Order extends Model
 		'user_postal_code',
 		'user_mobile',
 		'description',
-		'status'=> OrderStatus::class
+        'status'
 	];
 
 	public function user()

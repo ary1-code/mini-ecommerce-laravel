@@ -43,11 +43,11 @@
                     method="POST"
                 >
                     @csrf
+
                     @error('general')
                     <div class="text-red-500">{{ $message }}</div>
                     @enderror
-                    <input type="hidden" name="_token" value="4bYZgaUXw6NRUpehNCo79sVxnGyoZdTpQMBuSG48"
-                           autocomplete="off">
+
                     <div>
                         <label for="first_name" class="block text-sm/6 font-medium text-gray-500 dark:text-gray-300">
                             نام
