@@ -1,4 +1,7 @@
 <?php
+
+use App\Models\Product;
+
 if (!function_exists('getUserFullName')) {
     function getUserFullName(): string
     {
@@ -31,3 +34,42 @@ if (!function_exists('activeSideMenuItem')) {
     }
 
 }
+
+if (!function_exists('getFullProductName')) {
+    function getFullProductName(Product $product): string
+    {
+
+        return $product->name . ' | ' . $product->name_en;
+
+    }
+}
+
+if (!function_exists('getDiscountPercent')) {
+    function getDiscountPercent(Product $product): int
+    {
+        return (int)(($product->disscount * 100) / $product->price);
+
+    }
+}
+
+if (!function_exists('generateSortColorClass')) {
+    function generateSortColorClass(string $current): string
+    {
+        if (!request()->filled('sort') && $current == 'newest'){
+
+            return 'text-blue-500';
+        }
+
+       $sortFromQs=request()->input('sort');
+
+        if ($sortFromQs==$current){
+
+            return 'text-blue-500';
+        }
+
+        return "text-gray-400";
+
+    }
+}
+
+

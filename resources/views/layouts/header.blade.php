@@ -5,7 +5,7 @@
         <div class="flex-between">
             <!-- Search Box -->
             <div class="relative z-20">
-                <form action="http://127.0.0.1:8000/products">
+                <form action="{{route('products.index')}}">
                     <!-- INPUT -->
                     <div
                         class="search-btn-open flex gap-x-2 app-border bg-gray-50 dark:bg-gray-700 p-1 rounded-full cursor-pointer ring-blue-400 w-84 transition-all"
@@ -20,14 +20,14 @@
                             placeholder="جستجو در محصولات..."
                             type="text"
                             name="keyword"
-                            value=""
+                            value="{{request()->query('keyword')}}"
                             style="border: 0"
                         />
                     </div>
                 </form>
             </div>
             <!-- Logo -->
-            <a href="http://127.0.0.1:8000" class="flex flex-col text-center ml-20">
+            <a href="{{route('index')}}" class="flex flex-col text-center ml-20">
                     <span class="font-MorabbaMedium text-4xl flex items-center">
                         فروشگاه<span class="text-blue-500">درنیکا</span>
                     </span>
@@ -50,7 +50,7 @@
                 @auth
                     <!-- Account Btn -->
                     <button class="group relative flex-center py-2 px-4 app-border rounded-full app-hover delay-75">
-                        <a href="dashboard.html" class="flex items-center gap-x-1">
+                        <a href="{{route('account.profile.index')}}" class="flex items-center gap-x-1">
                             <svg class="size-5">
                                 <use href="#user"/>
                             </svg>
@@ -129,13 +129,13 @@
             <!-- MENU -->
             <ul class="flex items-center gap-x-8">
                 <li class="menu-item">
-                    <a href="http://127.0.0.1:8000" class="menu-item_link">
+                    <a href="{{route('index')}}" class="menu-item_link">
                         صفحه اصلی
                     </a>
                 </li>
 
                 <li class="menu-item">
-                    <a href="http://127.0.0.1:8000/products" class="menu-item_link">
+                    <a href="{{route('products.index')}}" class="menu-item_link">
                         فروشگاه
                     </a>
                 </li>
