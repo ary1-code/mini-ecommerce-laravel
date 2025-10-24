@@ -71,6 +71,14 @@ if (!function_exists('generateSortColorClass')) {
         return "text-gray-400";
 
     }
+
+    if (!function_exists('getUserProductCount')) {
+        function getUserProductCount(): int
+        {
+            return UserCartManager::getProductCount();
+
+        }
+    }
 }
 
 

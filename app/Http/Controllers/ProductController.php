@@ -6,6 +6,7 @@ use App\Http\Requests\ProductIndexRequest;
 use App\Models\Category;
 use App\Models\Product;
 use App\Services\ProductListHandler;
+use App\Services\UserCartManager;
 use Illuminate\Http\Request;
 
 
@@ -13,6 +14,7 @@ class ProductController extends Controller
 {
     public function index(ProductIndexRequest $request)
     {
+
         $title = 'لیست محصولات';
 
         $productsQuery = Product::query();
@@ -22,20 +24,16 @@ class ProductController extends Controller
         $productListHandler->applyFilter();
         $productListHandler->applySearch();
 
-
         $products = $productsQuery->paginate(25);
 
         $categories = Category::query()
             ->limit(100)
             ->get();
 
-
         $productCount = Product::count();
-
 
         return view('products.index', compact('title', 'products', 'productCount', 'categories'));
     }
-
 
     public function show(Product $product)
     {
@@ -49,15 +47,14 @@ class ProductController extends Controller
             ->limit(6)
             ->get();
 
+        $currentCartQty = UserCartManager::getProductQty($product->id);
 
 
-        return view('products.show', compact('title', 'product','relatedProducts'));
+        return view('products.show', compact('title', 'product', 'relatedProducts', 'currentCartQty'));
     }
-
 
     public function removeFilter(Request $request)
     {
-
         $queryString = $request->all();
 
         unset($queryString['category_id']);
@@ -66,6 +63,5 @@ class ProductController extends Controller
         return redirect()->route('products.index', $queryString);
 
     }
-
 
 }

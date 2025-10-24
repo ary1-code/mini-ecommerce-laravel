@@ -196,11 +196,10 @@
 
 
                 <form
-                    action="http://127.0.0.1:8000/cart/add"
+                    action="{{route('cart.add')}}"
                     method="POST"
                 >
-                    <input type="hidden" name="_token" value="VofHLLAqMD1Drv23vG8MgkBtFMjNl7t6G8gfBpxL"
-                           autocomplete="off">
+                    @csrf
                     <button
                         class="w-full flex items-center justify-between gap-x-1 rounded-lg border border-gray-200 dark:border-white/20 py-2 px-3"
                         type="button"
@@ -213,22 +212,19 @@
                             name="qty"
                             id="customInput"
                             min="1"
-                            max="50"
-                            value="1"
+                            max="{{$product->qty}}"
+                            value="{{$currentCartQty == 0 ? 1 : $currentCartQty}}"
                             class="custom-input mr-4 text-lg bg-transparent"
                         />
                         <svg class="w-6 h-6 decrement text-red-500">
                             <use href="#minus"></use>
                         </svg>
                     </button>
-
-
                     <br>
-
                     <input
                         type="hidden"
                         name="product_id"
-                        value="2"
+                        value="{{$product->id }}"
                     />
 
                     <button
@@ -238,7 +234,11 @@
                         <svg class="w-5 h-5">
                             <use href="#shopping-bag"></use>
                         </svg>
-                        افزودن به سبد
+                        @if($currentCartQty == 0)
+                            افزودن به سبد
+                        @else
+                            ویرایش تعداد در سبد خرید
+                        @endif
                     </button>
                 </form>
 
@@ -266,11 +266,11 @@
                 <div
                     class="flex flex-col gap-y-4 xs:flex-row items-center justify-between w-full text-center xs:text-start">
                     <div class="flex items-center gap-x-2 sm:gap-x-4">
-                    <span class="size-12 hidden xs:flex rounded-lg bg-white shadow-lg dark:bg-gray-800 flex-center">
-                        <svg class="size-7 text-gray-700 dark:text-gray-100">
-                            <use href="#mobile"></use>
-                        </svg>
-                    </span>
+                        <span class="size-12 hidden xs:flex rounded-lg bg-white shadow-lg dark:bg-gray-800 flex-center">
+                            <svg class="size-7 text-gray-700 dark:text-gray-100">
+                                <use href="#mobile"></use>
+                            </svg>
+                        </span>
                         <div class="space-y-1 md:space-y-1">
                             <h3 class="text-xl md:text-2xl font-MorabbaMedium text-gray-800 dark:text-gray-50">محصولات
                                 <span class="text-blue-600 dark:text-blue-500">مرتبط</span>
@@ -296,13 +296,12 @@
                             <p>مشاهده همه</p>
                             <span
                                 class="w-7 h-7 rounded-full bg-blue-500 flex-center md:group-hover:-translate-x-1 transition-transform duration-300">
-                            <svg class="size-5">
-                                <use href="#arrow"/>
-                            </svg>
-                        </span>
+                                <svg class="size-5">
+                                    <use href="#arrow"/>
+                                </svg>
+                            </span>
                         </a>
                     </div>
-
                 </div>
                 <!-- Latest products Slider -->
                 <div class="swiper BestSelling mt-5 w-full">
@@ -312,11 +311,9 @@
                         @foreach($relatedProducts as $product)
                             @include('products.components.product')
                         @endforeach
-
                     </div>
                 </div>
             </section>
         @endif
-
     </main>
 @endsection

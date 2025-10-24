@@ -51,9 +51,9 @@ Route::prefix('products')->as('products.')->group(function () {
 
     Route::get('/', [ProductController::class, 'index'])->name('index');
 
-    Route::get('removeFilter',[ProductController::class,'removeFilter'])->name('removeFilter');
+    Route::get('removeFilter', [ProductController::class, 'removeFilter'])->name('removeFilter');
 
-    Route::get('{product}',[ProductController::class,'show'])->name('show');
+    Route::get('{product}', [ProductController::class, 'show'])->name('show');
 
 
 

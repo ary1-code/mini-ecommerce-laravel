@@ -150,24 +150,25 @@
                                 <li
                                     class="{{generateSortColorClass('newest')}}"
                                 >
-                                    <a href="{{request()->fullUrlWithoutQuery(['sort'=> ' newest'])}}">جدید ترین</a>
+                                    <a href="{{request()->fullUrlWithQuery(['sort'=> 'newest'])}}">جدید ترین</a>
                                 </li>
                                 <li
                                     class="{{generateSortColorClass('best_selling')}}"
                                 >
-                                    <a href="{{request()->fullUrlWithoutQuery(['sort'=> ' best_selling'])}}">پرفروش
+                                    <a href="{{request()->fullUrlWithQuery(['sort'=> 'best_selling'])}}">پرفروش
                                         ترین</a>
                                 </li>
                                 <li
                                     class="{{generateSortColorClass('lowest')}}"
                                 >
-                                    <a href="{{request()->fullUrlWithoutQuery(['sort'=> ' lowest'])}}">ارزان ترین</a>
+                                    <a href="{{request()->fullUrlWithQuery(['sort'=> 'lowest'])}}">ارزان ترین</a>
                                 </li>
                                 <li
                                     class="{{generateSortColorClass('highest')}}"
                                 >
-                                    <a href="{{request()->fullUrlWithoutQuery(['sort'=> ' highest'])}}">گران ترین</a>
+                                    <a href="{{request()->fullUrlWithQuery(['sort'=> 'highest'])}}">گران ترین</a>
                                 </li>
+{{--                                @dd(request()->fullUrlWithoutQuery(['sort'=> ' highest']))--}}
                             </ul>
 
                         </div>

@@ -2,11 +2,10 @@
     <!-- product header -->
     <div class="product-card_header">
         <div class="flex items-center gap-x-2">
-            <form action="#"
-                  method="POST"
-            >
+            <form action="{{route('cart.add')}}"
+                  method="POST">
                 @csrf
-                <input type="hidden" name="product_id" value="2"/>
+                <input type="hidden" name="product_id" value="{{$product->id}}"/>
                 <input type="hidden" name="qty" value="1"/>
 
                 <div class="tooltip">
