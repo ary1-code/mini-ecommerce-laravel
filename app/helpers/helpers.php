@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Product;
+use App\Services\UserCartManager;
 
 if (!function_exists('getUserFullName')) {
     function getUserFullName(): string
@@ -55,14 +56,14 @@ if (!function_exists('getDiscountPercent')) {
 if (!function_exists('generateSortColorClass')) {
     function generateSortColorClass(string $current): string
     {
-        if (!request()->filled('sort') && $current == 'newest'){
+        if (!request()->filled('sort') && $current == 'newest') {
 
             return 'text-blue-500';
         }
 
-       $sortFromQs=request()->input('sort');
+        $sortFromQs = request()->input('sort');
 
-        if ($sortFromQs==$current){
+        if ($sortFromQs == $current) {
 
             return 'text-blue-500';
         }

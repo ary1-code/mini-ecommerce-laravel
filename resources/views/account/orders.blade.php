@@ -64,7 +64,7 @@
 
                         <td class="px-6 py-5">
 
-                            {{ $order->created_at->format('H:i Y/m/d')}}
+                            {{ $order->created_at->toJalali()->format('H:i Y/m/d')}}
 
                         </td>
 

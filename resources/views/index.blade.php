@@ -131,7 +131,6 @@
             <div class="swiper LatestProducts mt-5 w-full">
                 <div class="swiper-wrapper py-5">
                     <!-- PRODUCT ITEM -->
-
                     @foreach($newestProducts as $product)
                         @include('products.components.product')
                     @endforeach
@@ -186,7 +185,6 @@
             <!-- Latest products Slider -->
             <div class="swiper BestSelling mt-5 w-full">
                 <div class="swiper-wrapper py-5">
-
                     @foreach($bestSellingProducts as $product)
                         @include('products.components.product')
                     @endforeach

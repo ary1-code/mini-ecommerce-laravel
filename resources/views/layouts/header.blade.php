@@ -106,7 +106,7 @@
                     </svg>
                 </button>
                 <!-- Shopping cart -->
-                <a href="http://127.0.0.1:8000/cart"
+                <a href="{{route('cart.index')}}"
                    class="flex-center p-2 bg-blue-600 text-gray-100 rounded-full open-cart relative">
                     <svg class="size-6">
                         <use href="#shopping-bag"/>
@@ -118,7 +118,7 @@
                         </span>
                         <span
                             class="relative inline-flex rounded-full h-4 w-4 bg-red-500 text-xs pt-1 flex-center text-white">
-                            1
+                            {{getUserProductCount()}}
                         </span>
                     </span>
                 </a>

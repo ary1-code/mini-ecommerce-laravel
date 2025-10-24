@@ -5,6 +5,7 @@ use App\Http\Controllers\Account\ProfileController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -41,7 +42,7 @@ Route::prefix('account')->as('account.')->middleware('auth')->group(function () 
             Route::put('/', 'put')->name('put');
         });
 
-    Route::get('orders', [OrderController::class,'index'] )->name('order.index');
+    Route::get('orders', [OrderController::class, 'index'])->name('order.index');
 
 
 });
