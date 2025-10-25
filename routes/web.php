@@ -56,5 +56,20 @@ Route::prefix('products')->as('products.')->group(function () {
     Route::get('{product}', [ProductController::class, 'show'])->name('show');
 
 
+});
+
+Route::prefix('cart')->as('cart.')->group(function () {
+
+    Route::get('/', [CartController::class, 'index'])->name('index');
+
+    Route::post('add', [CartController::class, 'add'])->name('add');
+
+
+    Route::get('clear', [CartController::class, 'clear'])->name('clear');
+
+
+    Route::get('{product_id}/remove', [CartController::class, 'removeItem'])->name('removeItem');
+
+    Route::post('update_qty',[CartController::class,'updateQty'])->name('updateQty');
 
 });
