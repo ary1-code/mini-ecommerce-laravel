@@ -68,7 +68,7 @@ return [
         'string' => 'گزینه :attribute باید بزرگتر یا مساوی :value کاراکتر باشد',
     ],
     'image' => 'گزینه :attribute باید از نوع تصویر باشد',
-    'hex_color'=>'فیلد :attribute باید یک رنگ هگزادسیمال معتبر باشد.',
+    'hex_color' => 'فیلد :attribute باید یک رنگ هگزادسیمال معتبر باشد.',
     'in' => 'گزینه انتخابی :attribute صحیح نمی باشد',
     'in_array' => 'گزینه :attribute در :other وجود ندارد',
     'integer' => 'گزینه :attribute باید از نوع عددی باشد',
@@ -101,7 +101,7 @@ return [
     ],
     'max_digits' => 'گزینه :attribute نباید بیشتر از :max رقم باشد',
     'mimes' => 'گزینه :attribute باید دارای یکی از این فرمت ها باشد: :values',
-    'mimetypes' =>  'گزینه :attribute باید دارای یکی از این فرمت ها باشد: :values',
+    'mimetypes' => 'گزینه :attribute باید دارای یکی از این فرمت ها باشد: :values',
     'min' => [
         'array' => 'گزینه :attribute باید حداقل :min آیتم داشته باشد',
         'file' => 'گزینه :attribute باید حداقل :min کیلوبایت باشد',
@@ -198,7 +198,7 @@ return [
         'password' => 'رمز عبور',
         'password_confirmation' => 'تاییدیه گذرواژه',
         'city' => 'شهر',
-        'state' => 'استان',
+        'province' => 'استان',
         'country' => 'کشور',
         'address' => 'آدرس',
         'phone' => 'تلفن',
@@ -230,6 +230,8 @@ return [
         'link' => 'لینک',
         'mobile_number' => 'شماره تماس',
         'work_number' => 'شماره تماس ثابت',
+        'user_address' => 'ادرس کاربر',
+        'postal_code' => 'کد پستی'
     ],
 
 ];
