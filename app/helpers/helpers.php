@@ -15,6 +15,19 @@ if (!function_exists('getUserFullName')) {
 
 }
 
+if (!function_exists('getAdminFullName')) {
+    function getAdminFullName(): string
+    {
+
+        $user = auth()->guard('admin')->user();
+
+        return "$user->first_name $user->last_name";
+
+    }
+
+}
+
+
 
 if (!function_exists('activeSideMenuItem')) {
     function activeSideMenuItem(string $targetRoute): string

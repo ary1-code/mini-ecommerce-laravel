@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Account\OrderController;
 use App\Http\Controllers\Account\ProfileController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -82,3 +83,5 @@ Route::prefix('checkout')->as('checkout.')->group(function () {
     Route::post('post', [CheckoutController::class, 'post'])->middleware('auth')->name('post');
 
 });
+
+
