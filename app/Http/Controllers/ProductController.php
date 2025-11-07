@@ -40,12 +40,12 @@ class ProductController extends Controller
         $title = $product->name;
 
         $product->load('category');
-
         $relatedProducts = Product::query()
             ->where('category_id', '=', $product->category_id)
             ->where('id', '!=', $product->id)
             ->limit(6)
             ->get();
+
 
         $currentCartQty = UserCartManager::getProductQty($product->id);
 

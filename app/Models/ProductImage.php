@@ -11,14 +11,14 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class ProductImage
- * 
+ *
  * @property int $id
  * @property int $product_id
  * @property int $file_id
  * @property bool $is_default
  * @property Carbon $created_at
  * @property Carbon $updated_at
- * 
+ *
  * @property File $file
  * @property Product $product
  *
@@ -50,4 +50,5 @@ class ProductImage extends Model
 	{
 		return $this->belongsTo(Product::class);
 	}
+
 }

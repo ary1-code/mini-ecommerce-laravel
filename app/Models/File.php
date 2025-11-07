@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class File
- * 
+ *
  * @property int $id
  * @property string $name
  * @property string $extension
@@ -22,7 +22,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Carbon $created_at
  * @property Carbon $updated_at
  * @property string|null $deleted_at
- * 
+ *
  * @property Collection|Category[] $categories
  * @property Collection|ProductImage[] $productImages
  * @property Collection|User[] $users
@@ -60,4 +60,6 @@ class File extends Model
 	{
 		return $this->hasMany(User::class, 'avatar_file_id');
 	}
+
+
 }

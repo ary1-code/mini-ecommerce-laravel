@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Throwable;
 
 class CheckoutController extends Controller
 {
@@ -28,6 +29,9 @@ class CheckoutController extends Controller
     }
 
 
+    /**
+     * @throws Throwable
+     */
     public function post(CheckoutPostRequest $request)
     {
         $userOrderManager = new UserOrderManager(Auth::user(), $request->validated());

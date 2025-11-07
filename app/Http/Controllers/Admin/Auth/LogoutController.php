@@ -12,6 +12,9 @@ class LogoutController extends Controller
     public function index()
     {
         Auth::guard('admin')->logout();
+        Session::flush();
+        Session::invalidate();
+        Session::regenerateToken();
         return redirect()->route('admin.auth.login.index');
     }
 }
