@@ -18,6 +18,7 @@ class UserCartManager
         foreach ($cartItems as $productId => $cartItem) {
 
             $cartItems[$productId]['product'] = Product::find($productId);
+
         }
         return $cartItems;
     }
@@ -38,7 +39,6 @@ class UserCartManager
     public static function getProductQty(int $productId): int
     {
         $cartItems = self::getItems();
-
         if (!isset($cartItems[$productId])) {
             return 0;
 

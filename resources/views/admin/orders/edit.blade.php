@@ -1,0 +1,64 @@
+@extends('admin.layout.app')
+
+@section('breadcrumbs')
+    <div>
+        <div>
+            <h1 class="page-title fw-medium fs-18 mb-2">ویرایش سفارش</h1>
+            <div class="">
+                <nav>
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">مدیریت سفارشات</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">ویرایش سفارش</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+@endsection
+
+@section('content')
+    <!-- Start::app-content -->
+    <div class="main-content app-content">
+
+        <div class="container-fluid pt-4">
+
+
+            <!-- Edit Form -->
+            <div class="card custom-card">
+                <div class="card-body">
+
+
+                    <form action="{{route('admin.orders.update', $order->id)}}" method="POST">
+                        @csrf
+                        @method('PATCH')
+                        <!-- Status -->
+                        <div class="mb-3">
+                            <label for="status" class="form-label fw-semibold">وضعیت سفارش</label>
+
+                            <select name="status" id="status" class="form-select ">
+
+                                @foreach(\App\Enums\OrderStatus::cases() as $case)
+                                    <option
+                                        value="{{$case->value}}"
+                                        @selected($case == $order->status)
+                                    >
+                                        {{__("enums." .$case->name)}}</option>
+                                @endforeach
+
+
+
+                            </select>
+                        </div>
+
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary btn-wave">
+                            ذخیره تغییرات
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End::app-content -->
+@endsection
