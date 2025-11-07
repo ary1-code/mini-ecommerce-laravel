@@ -1,9 +1,10 @@
+
 <!-- Start::main-sidebar -->
 <aside class="app-sidebar sticky" id="sidebar">
 
     <!-- Start::main-sidebar-header -->
     <div class="main-sidebar-header">
-        <a href="http://127.0.0.1:8000/admin" class="header-logo">
+        <a href="{{route('admin.dashboard')}}" class="header-logo">
             <span class="text-primary fs-6 fw-bold">پنل مدیریت</span>
         </a>
     </div>
@@ -33,8 +34,8 @@
                                 <ul class="main-menu mx-0">
                                     <!-- Start::slide -->
                                     <li class="slide active">
-                                        <a href="http://127.0.0.1:8000/admin/dashboard"
-                                           class="side-menu__item active">
+                                        <a href="{{route('admin.dashboard')}}"
+                                           class="side-menu__item  {{activeAdminSidebarItem('admin.dashboard')}}">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" width="1em"
                                                  height="1em" viewBox="0 0 24 24">
                                                 <g fill="none" stroke="currentColor" stroke-linecap="round"
@@ -51,9 +52,8 @@
 
                                     <!-- Start::slide -->
                                     <li class="slide ">
-                                        <a href="http://127.0.0.1:8000/admin/users"
-                                           class="side-menu__item ">
-
+                                        <a href="{{route('admin.users.index')}}"
+                                           class="side-menu__item  {{activeAdminSidebarItem(['admin.users.index', 'admin.users.show', 'admin.users.edit'])}}">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" width="1em"
                                                  height="1em" viewBox="0 0 24 24">
                                                 <path fill="none" stroke="currentColor" stroke-linecap="round"
@@ -69,8 +69,8 @@
 
                                     <!-- Start::slide -->
                                     <li class="slide  ">
-                                        <a href="http://127.0.0.1:8000/admin/orders"
-                                           class="side-menu__item ">
+                                        <a href="{{route('admin.orders.index')}}"
+                                           class="side-menu__item  {{activeAdminSidebarItem(['admin.orders.index', 'admin.orders.show', 'admin.orders.edit'])}}">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" width="1em"
                                                  height="1em" viewBox="0 0 24 24">
                                                 <path fill="none" stroke="currentColor" stroke-linecap="round"
@@ -85,8 +85,8 @@
 
                                     <!-- Start::slide -->
                                     <li class="slide  ">
-                                        <a href="http://127.0.0.1:8000/admin/products"
-                                           class="side-menu__item ">
+                                        <a href="{{route('admin.products.index')}}"
+                                           class="side-menu__item  {{activeAdminSidebarItem(['admin.products.index', 'admin.products.show', 'admin.products.edit' ,'admin.products.create'])}}">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon"
                                                  width="1em" height="1em" viewBox="0 0 24 24">
                                                 <path fill="none" stroke="currentColor" stroke-linecap="round"
@@ -122,8 +122,8 @@
 
                                     <!-- Start::slide -->
                                     <li class="slide ">
-                                        <a href="http://127.0.0.1:8000/admin/admins"
-                                           class="side-menu__item ">
+                                        <a href="{{route('admin.admins.index')}}"
+                                           class="side-menu__item {{activeAdminSidebarItem('admin.admins.index')}}">
                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                  class="side-menu__icon"
                                                  width="1em"
@@ -166,4 +166,4 @@
     <!-- End::main-sidebar -->
 
 </aside>
-<!-- End::main-sidebar -->
+

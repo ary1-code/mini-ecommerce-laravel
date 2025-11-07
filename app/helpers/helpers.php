@@ -47,7 +47,23 @@ if (!function_exists('activeSideMenuItem')) {
 
     }
 
-}
+
+    if (!function_exists('activeAdminSidebarItem')) {
+        function activeAdminSidebarItem(string|array $targetRoute, string $activeClass = 'active'): string
+        {
+            $currentRouteName = \Illuminate\Support\Facades\Route::currentRouteName();
+
+            if (is_string($targetRoute)) {
+                $targetRoute = [$targetRoute];
+            }
+            if (in_array($currentRouteName, $targetRoute)) {
+                return $activeClass;
+
+            }
+            return '';
+        }
+    }
+
 
 if (!function_exists('getFullProductName')) {
     function getFullProductName(Product $product): string
