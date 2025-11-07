@@ -17,6 +17,20 @@ Route::prefix('/')->as('admin.')->group(function () {
     Route::middleware('auth:admin')->group(function () {
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::post('logout', [LogoutController::class, 'index'])->name('logout');
+
+
+        Route::prefix('users')->as('users.')->controller(UserController::class)->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::prefix('{user}')->group(function () {
+                Route::get('show', 'show')->name('show');
+                Route::get('edit', 'edit')->name('edit');
+                Route::put('update', 'update')->name('update');
+                Route::delete('delete', 'delete')->name('delete');
+
+            });
+
+        });
+
         Route::prefix('orders')->as('orders.')->controller(OrderController::class)->group(function () {
             Route::get('/', 'index')->name('index');
             Route::prefix('{order}')->group(function () {
