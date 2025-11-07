@@ -42,6 +42,28 @@ Route::prefix('/')->as('admin.')->group(function () {
             });
 
         });
+
+        Route::prefix('products')->as('products.')->controller(ProductController::class)->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('create', 'create')->name('create');
+            Route::prefix('{product}')->group(function () {
+                Route::get('show', 'show')->name('show');
+                Route::get('edit', 'edit')->name('edit');
+                Route::post('store', 'store')->name('store');
+                Route::put('update', 'update')->name('update');
+                Route::delete('delete', 'delete')->name('delete');
+
+            });
+
+        });
+
+
+        Route::prefix('admins')->as('admins.')->controller(AdminController::class)->group(function () {
+            Route::get('/', 'index')->name('index');
+
+        });
+
+
     });
 
     // -------------------- Guest zone --------------------
