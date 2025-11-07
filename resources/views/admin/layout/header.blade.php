@@ -135,7 +135,6 @@
         action="{{route('admin.logout')}}"
         method="POST">
         @csrf
-
     </form>
 
 
