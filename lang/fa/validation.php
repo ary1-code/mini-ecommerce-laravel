@@ -191,6 +191,10 @@ return [
 
     'attributes' => [
         'name' => 'نام',
+        'name_en'=>'نام انگلیسی',
+        'disscount'=>'تخفیف',
+        'category_id'=>'دسته بندی',
+        'qty'=>'موجودی',
         'username' => 'نام کاربری',
         'email' => 'ایمیل',
         'first_name' => 'نام',
