@@ -17,10 +17,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>
-        پنل مدیریت
-        | داشبورد
+        {{config('project.title')}}
+        @isset($title)
+            |
+            {{$title}}
+        @endisset
     </title>
-
     <!-- Favicon -->
     <link rel="icon" href="{{asset('assets/admin/images/brand-logos/favicon.icon')}}" type="image/x-icon">
 
@@ -83,7 +85,7 @@
 <!-- page -->
 <div class="page">
 
-    @include('admin.layout.header')
+    @includeUnless(isset($rawLayout),'admin.layout.header')
 
     @includeUnless(isset($rawLayout),'admin.layout.sidebar')
 
