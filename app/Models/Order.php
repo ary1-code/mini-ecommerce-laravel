@@ -8,9 +8,13 @@ namespace App\Models;
 
 use App\Enums\OrderStatus;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 /**
  * Class Order
@@ -47,8 +51,57 @@ class Order extends Model
 		'total_products' => 'int',
         'status'=> OrderStatus::class
 	];
+    #[Scope]
+    public function applyOrderSort(Builder $query): void
+    {
+        $sort = Request::query('sort');
 
-	protected $fillable = [
+        switch ($sort) {
+            case 'created_at_desc':
+                $query->orderByDesc('created_at');
+                break;
+
+            case 'created_at_asc':
+                $query->orderBy('created_at');
+                break;
+
+            case 'price_high':
+                $query->orderByDesc('total_price');
+                break;
+
+            case 'price_low':
+                $query->orderBy('total_price');
+                break;
+
+            case 'status':
+                $query->orderBy('status');
+                break;
+
+            default:
+                $query->orderByDesc('id');
+                break;
+        }
+    }
+
+    #[Scope]
+    public function applyOrderSearch(Builder $query): Builder
+    {
+        $search = Request::query('search');
+
+        if (!empty($search)) {
+            $query->where(function($q) use ($search) {
+                $q->where('id', 'like', "%{$search}%")
+                    ->orWhere('customer_name', 'like', "%{$search}%")
+                    ->orWhere('customer_email', 'like', "%{$search}%")
+                    ->orWhere('customer_mobile', 'like', "%{$search}%");
+            });
+        }
+
+        return $query;
+    }
+
+
+    protected $fillable = [
 		'user_id',
 		'total_price',
 		'total_products',

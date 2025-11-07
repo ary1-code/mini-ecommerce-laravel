@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Product
- * 
+ *
  * @property int $id
  * @property string $name
  * @property string $name_en
@@ -25,7 +25,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Carbon $created_at
  * @property Carbon $updated_at
  * @property string|null $deleted_at
- * 
+ *
  * @property Category $category
  * @property Collection|OrderItem[] $orderItems
  * @property Collection|ProductImage[] $productImages
@@ -69,4 +69,11 @@ class Product extends Model
 	{
 		return $this->hasMany(ProductImage::class);
 	}
+    public function defaultImage()
+    {
+        return $this->hasOne(ProductImage::class)
+            ->where('is_default', 1)
+            ->with('file');
+    }
+
 }
